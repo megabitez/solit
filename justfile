@@ -1,6 +1,6 @@
 build database="sqlite":
-    just docs
-    just styles
+    snap run just docs
+    snap run just styles
     bun i
     bun run static_build.ts
     cargo build -r --no-default-features --features {{database}}
@@ -9,7 +9,7 @@ docs:
     cargo doc --no-deps --document-private-items
 
 test:
-    just docs
+    snap run just docs
     bun run static_build.ts
     cargo run
 
